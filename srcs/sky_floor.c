@@ -6,7 +6,7 @@
 /*   By: sookim <sookim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 00:23:57 by marvin            #+#    #+#             */
-/*   Updated: 2020/11/19 07:58:45 by sookim           ###   ########.fr       */
+/*   Updated: 2020/11/19 08:00:34 by sookim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	convert_rgb(t_map *map, char *line, int fc)
 			map->color.ceiling = 65536 * r + 256 * g + b;
 	}
 	else
-		error_exit(map, 2);
+		error_exit(map, 1);
 }
 
 void	sky_floor(t_map *map)
@@ -45,7 +45,7 @@ void	sky_floor(t_map *map)
 
 	x = 0;
 	if ((map->color.ceiling < 0) || (map->color.floor < 0))
-		error_exit(map, 3);
+		error_exit(map, 1);
 	while (x < (map->win.s_l / 4) * map->res_y / 2)
 	{
 		map->win.str[x] = map->color.ceiling;

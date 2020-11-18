@@ -6,7 +6,7 @@
 /*   By: sookim <sookim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 00:23:34 by marvin            #+#    #+#             */
-/*   Updated: 2020/11/19 07:05:21 by sookim           ###   ########.fr       */
+/*   Updated: 2020/11/19 08:00:16 by sookim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	define_res(char *line, t_map *map)
 	if (map->res_y > 1440)
 		map->res_y = 1440;
 	if (map->res_x <= 0 || map->res_y <= 0)
-		error_exit(map, 2);
+		error_exit(map, 1);
 }
 
 static void	define_flag(char *line, t_map *map)
