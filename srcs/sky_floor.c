@@ -6,7 +6,7 @@
 /*   By: sookim <sookim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 00:23:57 by marvin            #+#    #+#             */
-/*   Updated: 2020/11/19 07:28:12 by sookim           ###   ########.fr       */
+/*   Updated: 2020/11/19 07:58:45 by sookim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	convert_rgb(t_map *map, char *line, int fc)
 			map->color.floor = 65536 * r + 256 * g + b;
 		else
 			map->color.ceiling = 65536 * r + 256 * g + b;
-	}	
+	}
 	else
 		error_exit(map, 2);
 }
