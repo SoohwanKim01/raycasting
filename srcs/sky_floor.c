@@ -6,7 +6,7 @@
 /*   By: sookim <sookim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 00:23:57 by marvin            #+#    #+#             */
-/*   Updated: 2020/11/19 03:37:48 by sookim           ###   ########.fr       */
+/*   Updated: 2020/11/19 07:28:12 by sookim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,15 @@ void	convert_rgb(t_map *map, char *line, int fc)
 	while (ft_isdigit(line[i]))
 		i++;
 	b = ft_atoi(line + ++i);
-	if (!fc)
-		map->color.floor = 65536 * r + 256 * g + b;
+	if ((r > 0 && r <= 255) && (g > 0 && g <= 255) && (b > 0 && b <= 255))
+	{
+		if (!fc)
+			map->color.floor = 65536 * r + 256 * g + b;
+		else
+			map->color.ceiling = 65536 * r + 256 * g + b;
+	}	
 	else
-		map->color.ceiling = 65536 * r + 256 * g + b;
+		error_exit(map, 2);
 }
 
 void	sky_floor(t_map *map)
@@ -39,6 +44,8 @@ void	sky_floor(t_map *map)
 	int		sky;
 
 	x = 0;
+	if ((map->color.ceiling < 0) || (map->color.floor < 0))
+		error_exit(map, 3);
 	while (x < (map->win.s_l / 4) * map->res_y / 2)
 	{
 		map->win.str[x] = map->color.ceiling;

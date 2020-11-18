@@ -6,7 +6,7 @@
 /*   By: sookim <sookim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 00:23:51 by marvin            #+#    #+#             */
-/*   Updated: 2020/11/19 04:20:06 by sookim           ###   ########.fr       */
+/*   Updated: 2020/11/19 07:31:15 by sookim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int			map_parse(t_map *map, char **tmp)
 	int i;
 
 	i = map->y - 1;
+	if (map->y <= 0)
+		error_exit(map, 2);
 	define_x(map, tmp);
 	lst_malloc((void **)&map->map, map->y * sizeof(int *), map);
 	while (i + 1 && map->x)
